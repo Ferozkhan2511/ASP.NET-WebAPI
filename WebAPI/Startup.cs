@@ -39,7 +39,8 @@ namespace WebAPI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
-            options.WithOrigins("http://localhost:3000")
+           options.WithOrigins("http://localhost:3000")
+          //   options.WithOrigins $React_Front_end_Url
             .AllowAnyHeader()
             .AllowAnyMethod());
 
