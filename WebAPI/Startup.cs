@@ -39,8 +39,8 @@ namespace WebAPI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
-              options.WithOrigins("http://74.249.89.180:4444")
-          //  options.WithOrigins $React_Front_end_Url
+          //  options.WithOrigins("http://74.249.89.180:4444")
+              options.WithOrigins $React_Front_end_Url
             .AllowAnyHeader()
             .AllowAnyMethod());
 
