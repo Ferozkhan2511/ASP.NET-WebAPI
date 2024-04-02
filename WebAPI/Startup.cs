@@ -50,7 +50,7 @@ namespace WebAPI
           {
                 options.WithOrigins(frontEndUrl)
                        .AllowAnyHeader()
-                       .AllowAnyMethod());
+                       .AllowAnyMethod();
           }
               else
                {
