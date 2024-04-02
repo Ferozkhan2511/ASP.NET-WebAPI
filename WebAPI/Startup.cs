@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Cors;
 using WebAPI.Models;
 
 namespace WebAPI
@@ -31,9 +32,6 @@ namespace WebAPI
             services.AddDbContext<DonationDBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
-          //   var connectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING");
-          //  Configuration["ConnectionStrings:DevConnection"] = connectionString;
-
 
             services.AddCors();
         }
@@ -42,10 +40,12 @@ namespace WebAPI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
-         //   options.WithOrigins("http://74.249.89.180:777")
-         //     options.WithOrigins(Environment.GetEnvironmentVariable("React_Front_end_Url"))
-                        {
-                var frontEndUrl = Environment.GetEnvironmentVariable("React_Front_end_Url");
+            //options.WithOrigins("http://localhost:3000")
+            //  options.WithOrigins("http://localhost:1131")
+            // options.WithOrigins(Environment.GetEnvironmentVariable("React_Front_end_Url"))
+
+            {
+            var frontEndUrl = Environment.GetEnvironmentVariable("React_Front_end_Url");
             if (!string.IsNullOrEmpty(frontEndUrl))
             {
                 options.WithOrigins(frontEndUrl)
