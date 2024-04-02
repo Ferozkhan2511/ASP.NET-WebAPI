@@ -43,10 +43,22 @@ namespace WebAPI
         {
             app.UseCors(options =>
          //   options.WithOrigins("http://74.249.89.180:777")
-              options.WithOrigins(Environment.GetEnvironmentVariable("React_Front_end_Url"))
-            .AllowAnyHeader()
-            .AllowAnyMethod());
-
+         //     options.WithOrigins(Environment.GetEnvironmentVariable("React_Front_end_Url"))
+                        {
+                var frontEndUrl = Environment.GetEnvironmentVariable("React_Front_end_Url");
+            if (!string.IsNullOrEmpty(frontEndUrl))
+            {
+                options.WithOrigins(frontEndUrl)
+                       .AllowAnyHeader()
+                       .AllowAnyMethod();
+            }
+                else
+                {
+                    // Log a warning or handle the case where the environment variable is not set.
+                    // For example:
+                    // Console.WriteLine("Warning: React_Front_end_Url environment variable is not set.");
+                }
+            });
 
             if (env.IsDevelopment())
             {
