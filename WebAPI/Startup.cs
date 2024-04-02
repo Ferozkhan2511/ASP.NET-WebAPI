@@ -28,11 +28,11 @@ namespace WebAPI
         {
             services.AddControllers();
 
-          //  services.AddDbContext<DonationDBContext>(options =>
-          //  options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddDbContext<DonationDBContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
-             var connectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING");
-            Configuration["ConnectionStrings:DevConnection"] = connectionString;
+          //   var connectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING");
+          //  Configuration["ConnectionStrings:DevConnection"] = connectionString;
 
 
             services.AddCors();
