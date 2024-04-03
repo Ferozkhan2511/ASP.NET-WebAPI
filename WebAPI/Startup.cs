@@ -10,8 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System.Web.Http;
-using System.Web.Http.Cors;
 using WebAPI.Models;
 
 namespace WebAPI
