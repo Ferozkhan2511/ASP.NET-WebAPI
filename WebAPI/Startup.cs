@@ -53,7 +53,7 @@ namespace WebAPI
                            .AllowAnyMethod());
             //    }
            //     else
-                {
+           //     {
                     // Log a warning or handle the case where the environment variable is not set.
                     // For example:
                     // Console.WriteLine("Warning: React_Front_end_Url environment variable is not set.");
