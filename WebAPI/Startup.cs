@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Cors;
 using WebAPI.Models;
 
 namespace WebAPI
@@ -40,25 +39,10 @@ namespace WebAPI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
-            //options.WithOrigins("http://localhost:3000")
-              options.WithOrigins("http://74.249.89.180:777")
-            // options.WithOrigins(Environment.GetEnvironmentVariable("React_Front_end_Url"))
+            options.WithOrigins("#{Front-end-url}#")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
 
-          //  {
-          //      var frontEndUrl = Configuration.GetSection("React_Front_end_Url").Value;
-          //      if (!string.IsNullOrEmpty(frontEndUrl))
-          //      {
-          //          options.WithOrigins(frontEndUrl)
-                           .AllowAnyHeader()
-                           .AllowAnyMethod());
-            //    }
-           //     else
-           //     {
-                    // Log a warning or handle the case where the environment variable is not set.
-                    // For example:
-                    // Console.WriteLine("Warning: React_Front_end_Url environment variable is not set.");
-             //   }
-         //   });
 
             if (env.IsDevelopment())
             {
