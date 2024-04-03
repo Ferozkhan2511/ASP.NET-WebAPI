@@ -41,7 +41,8 @@ namespace WebAPI
 
             
             app.UseCors(options =>
-            options.WithOrigins("http://74.249.89.180:777")
+        //    options.WithOrigins("http://74.249.89.180:777")
+             options.WithOrigins("#{Front-end-url}#")
             .AllowAnyHeader()
             .AllowAnyMethod());
 
